@@ -1,0 +1,64 @@
+/* estilos.css · estilos de la página, no los estilos INTERNOS del Web Component. */
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color: #172842;
+  background: #F3F7FC;
+}
+.pagina { min-height: 100vh; }
+.contenedor { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 30px; padding-right: 30px; }
+.cabecera { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 25px; padding-bottom: 24px; }
+.identidad { display: inline-flex; align-items: center; gap: 11px; font-size: 1.12rem; font-weight: 760; letter-spacing: -.035em; }
+.identidad-icono { display: grid; place-items: center; width: 42px; height: 42px; color: white; background: #1155A0; border-radius: 12px; font-size: 1.25rem; font-weight: 800; box-shadow: 0 8px 20px rgba(17,85,160,.2); }
+.identidad-icono span { color: #6EE6EB; }
+.identidad-texto strong { color: #1676CB; }
+.cabecera-etiqueta { color: #6B7D98; font-size: .68rem; letter-spacing: .16em; font-weight: 800; }
+.presentacion { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 304px; overflow: hidden; border-radius: 25px; background: linear-gradient(115deg, #101F39, #163760 70%, #12559A); color: white; padding-top: 38px; padding-bottom: 41px; box-shadow: 0 15px 45px rgba(16,42,80,.16); }
+.presentacion-texto { position: relative; z-index: 2; max-width: 750px; }
+.sobretitulo { margin: 0 0 13px; color: #65DFE8; font-size: .72rem; font-weight: 800; letter-spacing: .16em; }
+.punto { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #65DFE8; margin-right: 5px; box-shadow: 0 0 0 4px rgba(101,223,232,.11); }
+.presentacion h1 { margin: 0; font-size: clamp(1.85rem, 3.35vw, 2.9rem); line-height: 1.16; letter-spacing: -.045em; }
+.presentacion h1 span { color: #75DAF4; }
+.presentacion-descripcion { margin: 17px 0 0; max-width: 690px; font-size: .98rem; line-height: 1.7; color: #D3DFEF; }
+.beneficios { display: flex; flex-wrap: wrap; gap: 13px 25px; margin-top: 23px; color: #EAF7FF; font-size: .79rem; font-weight: 620; }
+.beneficios span span { color: #66E5CD; margin-right: 6px; }
+.presentacion-decoracion { position: absolute; top: 0; bottom: 0; right: 0; width: 300px; opacity: .8; pointer-events: none; }
+.circulo { position: absolute; border: 1px solid rgba(163,229,254,.19); border-radius: 50%; }
+.circulo-uno { width: 355px; height: 355px; right: -150px; top: -70px; }
+.circulo-dos { width: 245px; height: 245px; right: -95px; top: 0; }
+.orbita { position: absolute; width: 13px; height: 13px; border-radius: 50%; background: #53D7EC; box-shadow: 0 0 30px #53D7EC; }
+.orbita-uno { top: 67px; right: 116px; }
+.orbita-dos { right: 40px; bottom: 46px; width: 8px; height: 8px; }
+.decoracion-icono { position: absolute; right: 40px; top: 95px; width: 105px; height: 105px; display: grid; place-items: center; border: 1px solid rgba(183,239,255,.38); border-radius: 26px; background: rgba(255,255,255,.07); backdrop-filter: blur(8px); transform: rotate(-10deg); }
+.decoracion-icono span { font-size: 3.6rem; color: #97EFFF; }
+.servicios { padding-top: 44px; padding-bottom: 50px; }
+.servicios-cabecera { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 23px; }
+.titulo-seccion { color: #197BC6; margin-bottom: 8px; }
+.servicios h2 { font-size: clamp(1.4rem, 2.3vw, 1.85rem); letter-spacing: -.04em; line-height: 1.2; margin: 0; }
+.servicios-cabecera > p { color: #687C92; font-size: .85rem; margin: 0 0 3px; }
+.catalogo { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; align-items: stretch; }
+/* PASO 3: la página solo transmite el color de marca mediante la variable pública. */
+tarjeta-producto { --color-marca: #197BC6; }
+.pie-pagina { border-top: 1px solid #DBE6F0; padding-top: 21px; padding-bottom: 28px; display: flex; justify-content: space-between; align-items: center; gap: 10px; color: #6D7F95; font-size: .77rem; }
+.pie-pagina strong { color: #193A5B; }
+@media (max-width: 900px) {
+  .catalogo { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .presentacion-decoracion { opacity: .42; }
+}
+@media (max-width: 660px) {
+  .contenedor { padding-left: 18px; padding-right: 18px; }
+  .cabecera { padding-top: 16px; padding-bottom: 18px; }
+  .cabecera-etiqueta { display: none; }
+  .presentacion { min-height: unset; padding-top: 33px; padding-bottom: 36px; border-radius: 19px; }
+  .presentacion h1 { font-size: 1.85rem; }
+  .presentacion-descripcion { font-size: .91rem; }
+  .presentacion-decoracion { display: none; }
+  .beneficios { gap: 8px; }
+  .servicios { padding-top: 34px; padding-bottom: 36px; }
+  .servicios-cabecera { display: block; }
+  .servicios-cabecera > p { margin-top: 10px; }
+  .catalogo { grid-template-columns: 1fr; gap: 18px; }
+  .pie-pagina { display: grid; gap: 4px; }
+}
