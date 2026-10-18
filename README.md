@@ -7,7 +7,7 @@
 **NRC:** 36643  
 **Fecha:** 18 de octubre de 2026  
 **Repositorio:** https://github.com/crismch004-max/tecnoayuda-pyme  
-**Rama principal:** `main`
+**Rama principal:** `develop`
 
 ## Integrantes
 
