@@ -18,7 +18,7 @@ plantilla.innerHTML = `
     @media (prefers-reduced-motion: reduce) { a { transition: none; } a:hover { transform: none; } }
   </style>
   <a part="boton" id="enlace" target="_blank" rel="noopener noreferrer">
-    <span aria-hidden="true">💬</span><slot>Solicitar servicio</slot>
+    <span aria-hidden="true"></span><slot>Solicitar servicio</slot>
   </a>
 `;
 
