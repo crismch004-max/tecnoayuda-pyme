@@ -1,4 +1,4 @@
-   // componentes/tarjeta-producto.js · Autor: Jeremy · Unidad 1: Web Components
+// componentes/tarjeta-producto.js · Autor: Jeremy · Unidad 1: Web Components
 // PASO 2: UNA plantilla HTML fuera de la clase; cada instancia usa su propia copia.
 const plantilla = document.createElement("template");
 plantilla.innerHTML = `
@@ -39,7 +39,7 @@ plantilla.innerHTML = `
   <article>
     <div class="imagen"><slot name="foto">Imagen no disponible.</slot></div>
     <div class="cuerpo">
-      <span class="categoria">SERVICIO TECNOLÓGICO</span>
+      <span class="categoria" id="categoria">SERVICIO TECNOLÓGICO</span>
       <div class="nombre"><slot name="nombre">Servicio sin nombre.</slot></div>
       <div class="descripcion"><slot>Descripción no disponible.</slot></div>
       <div class="pie">
@@ -52,8 +52,8 @@ plantilla.innerHTML = `
 
 // PASO 1: Custom Element exportado desde su propio módulo ES.
 export class TarjetaProducto extends HTMLElement {
-  // PASO 3: el navegador notifica las modificaciones del atributo precio.
-  static get observedAttributes() { return ["precio"]; }
+  // PASO 3: el navegador notifica los cambios de precio y categoria.
+  static get observedAttributes() { return ["precio", "categoria"]; }
 
   constructor() {
     super();
@@ -69,13 +69,15 @@ export class TarjetaProducto extends HTMLElement {
     }
     // PASO 3: ahora existe #precio y podemos mostrar el valor inicial.
     this.actualizarPrecio();
+    // Mejora de Jeremy: muestra la categoría de cada servicio.
+    this.actualizarCategoria();
   }
 
   attributeChangedCallback(nombre, anterior, nuevo) {
-    if (nombre === "precio" && anterior !== nuevo) {
-      // Puede ocurrir antes de connectedCallback; actualizarPrecio lo comprueba.
-      this.actualizarPrecio();
-    }
+    if (anterior === nuevo) return;
+    // Puede ocurrir antes de connectedCallback; cada método lo comprueba.
+    if (nombre === "precio") this.actualizarPrecio();
+    if (nombre === "categoria") this.actualizarCategoria();
   }
 
   // PASO 3: atributo HTML y propiedad JavaScript sincronizados.
@@ -93,6 +95,13 @@ export class TarjetaProducto extends HTMLElement {
       return;
     }
     elementoPrecio.textContent = `$${valor.toLocaleString("es-EC", { maximumFractionDigits: 2 })}`;
+  }
+
+  // Mejora de Jeremy: atributo categoria con texto de respaldo.
+  actualizarCategoria() {
+    const elementoCategoria = this.shadowRoot.getElementById("categoria");
+    if (!elementoCategoria) return; // Plantilla aún no clonada.
+    elementoCategoria.textContent = this.getAttribute("categoria") || "SERVICIO TECNOLÓGICO";
   }
 }
 
