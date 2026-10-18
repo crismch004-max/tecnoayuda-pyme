@@ -9,7 +9,7 @@ plantilla.innerHTML = `
       box-sizing: border-box;
       height: 100%;
       border: 1px solid #E1EAF3;
-      border-top: 4px solid var(--color-marca, #197BC6);
+      border-top: 4px solid var(--color-marca, #176A91);
       border-radius: 17px;
       background: #FFFFFF;
       color: #172842;
@@ -24,14 +24,14 @@ plantilla.innerHTML = `
     .imagen { width: 100%; background: #E8F4FC; aspect-ratio: 16 / 9; overflow: hidden; }
     ::slotted(img[slot="foto"]) { display: block; width: 100%; height: 100%; object-fit: cover; }
     .cuerpo { display: flex; flex: 1; flex-direction: column; padding: 23px 22px 20px; }
-    .categoria { color: var(--color-marca, #197BC6); font-size: .68rem; letter-spacing: .15em; font-weight: 800; margin-bottom: 10px; }
+    .categoria { color: var(--color-marca, #176A91); font-size: .68rem; letter-spacing: .15em; font-weight: 800; margin-bottom: 10px; }
     .nombre { min-height: 2.8em; }
     ::slotted([slot="nombre"]) { color: #193655; font-size: 1.19rem; line-height: 1.36; letter-spacing: -.025em; font-weight: 740; margin: 0; }
     .descripcion { color: #65778C; line-height: 1.65; font-size: .9rem; margin-top: 13px; flex: 1; }
     ::slotted(p) { margin: 0; }
     .pie { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; border-top: 1px solid #E7EDF4; padding-top: 16px; margin-top: 24px; }
     .etiqueta-precio { font-size: .76rem; color: #74859A; }
-    #precio { display: block; margin-top: 2px; color: var(--color-marca, #197BC6); font-size: 1.66rem; line-height: 1.15; font-weight: 830; letter-spacing: -.035em; }
+    #precio { display: block; margin-top: 2px; color: var(--color-marca, #176A91); font-size: 1.66rem; line-height: 1.15; font-weight: 830; letter-spacing: -.035em; }
     .sello { font-size: .69rem; color: #668398; background: #F0F6FB; padding: 7px 9px; border-radius: 999px; white-space: nowrap; }
     @media (prefers-reduced-motion: reduce) { :host { transition: none; } :host(:hover) { transform: none; } }
   </style>
@@ -97,4 +97,6 @@ export class TarjetaProducto extends HTMLElement {
 }
 
 // PASO 1: nombre personalizado válido; lleva guion y se importa desde index.html.
-customElements.define("tarjeta-producto", TarjetaProducto);
+if (!customElements.get("tarjeta-producto")) {
+  customElements.define("tarjeta-producto", TarjetaProducto);
+}
