@@ -1,4 +1,4 @@
-// componentes/tarjeta-producto.js · Unidad 1: Web Components
+   // componentes/tarjeta-producto.js · Autor: Jeremy · Unidad 1: Web Components
 // PASO 2: UNA plantilla HTML fuera de la clase; cada instancia usa su propia copia.
 const plantilla = document.createElement("template");
 plantilla.innerHTML = `
