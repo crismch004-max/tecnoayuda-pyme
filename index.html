@@ -3,31 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TecnoAyuda PyME: mantenimiento de computadoras, instalación de redes Wi-Fi y respaldo de información para pequeños negocios.">
-  <title>TecnoAyuda PyME | Servicios tecnológicos</title>
+  <meta name="description" content="TecnoAyuda JACD: mantenimiento de computadoras, instalación de redes Wi-Fi y respaldo de información para pequeños negocios y personas particulares.">
+  <title>TecnoAyuda JACD | Servicios tecnológicos</title>
   <link rel="stylesheet" href="./estilos.css">
+  <link rel="icon" type="image/svg+xml" href="./img/favicon.svg">
   <!-- PASO 1: importar el módulo ES. Abrir con Live Server, no con file://. -->
   <script type="module" src="./componentes/tarjeta-producto.js"></script>
+  <script type="module" src="./componentes/boton-contacto.js"></script>
+  <script type="module" src="./componentes/testimonio-cliente.js"></script>
+  <script type="module" src="./componentes/preguntas-frecuentes.js"></script>
 </head>
 <body>
   <div class="pagina">
     <header class="cabecera contenedor">
-      <div class="identidad" aria-label="TecnoAyuda PyME">
+      <div class="identidad" aria-label="TecnoAyuda JACD">
         <span class="identidad-icono" aria-hidden="true">T<span>+</span></span>
-        <span class="identidad-texto">TecnoAyuda <strong>PyME</strong></span>
+        <span class="identidad-texto">TecnoAyuda <strong>JACD</strong></span>
       </div>
       <span class="cabecera-etiqueta">SOLUCIONES TECNOLÓGICAS</span>
     </header>
 
+    <main>
     <section class="presentacion contenedor" aria-labelledby="titulo-principal">
       <div class="presentacion-texto">
-        <p class="sobretitulo"><span class="punto" aria-hidden="true"></span> SOPORTE TI PARA NEGOCIOS</p>
-        <h1 id="titulo-principal">Tu negocio sigue adelante.<br><span>Nosotros cuidamos su tecnología.</span></h1>
-        <p class="presentacion-descripcion">Ayudamos a pequeños negocios a mantener sus equipos, mejorar su conexión y proteger sus archivos con servicios claros y precios definidos.</p>
+        <p class="sobretitulo"><span class="punto" aria-hidden="true"></span> SOPORTE TI PARA NEGOCIOS Y PERSONAS</p>
+        <h1 id="titulo-principal">Tu tecnología sigue adelante.<br><span>Nosotros te ayudamos a cuidarla.</span></h1>
+        <p class="presentacion-descripcion">Ayudamos a pequeños negocios y personas a mantener sus equipos, mejorar su conexión y proteger sus archivos con servicios claros y precios definidos.</p>
         <div class="beneficios" aria-label="Beneficios">
-          <span><span aria-hidden="true">✓</span> Atención a pequeñas empresas</span>
+          <span><span aria-hidden="true">✓</span> Atención a negocios y hogares</span>
           <span><span aria-hidden="true">✓</span> Precios transparentes</span>
         </div>
+        <!-- Componente de Cristian. Reemplazar el teléfono por el real. -->
+        <boton-contacto class="presentacion-boton" variante="claro" telefono="593983395590" mensaje="Hola TecnoAyuda JACD, quiero solicitar un servicio.">Solicitar servicio</boton-contacto>
       </div>
       <div class="presentacion-decoracion" aria-hidden="true">
         <div class="circulo circulo-uno"></div><div class="circulo circulo-dos"></div>
@@ -36,39 +43,81 @@
       </div>
     </section>
 
-    <main class="servicios contenedor" aria-labelledby="titulo-servicios">
+    <section class="servicios contenedor" aria-labelledby="titulo-servicios">
       <div class="servicios-cabecera">
         <div>
           <p class="sobretitulo titulo-seccion">NUESTRO CATÁLOGO</p>
           <h2 id="titulo-servicios">Servicios para mantenerte conectado</h2>
         </div>
-        <p>Elige la solución que tu negocio necesita.</p>
+        <p>Elige la solución tecnológica que necesitas.</p>
       </div>
 
       <!-- PASO 4: tres instancias del MISMO componente, cada una con sus slots y precio. -->
       <div class="catalogo">
-        <tarjeta-producto precio="25">
+        <tarjeta-producto precio="25" categoria="MANTENIMIENTO">
           <img slot="foto" src="./img/mantenimiento.svg" alt="Ilustración de una computadora portátil y herramientas de mantenimiento">
           <h3 slot="nombre">Mantenimiento de computadoras</h3>
           <p>Limpieza, formateo, antivirus y optimización de tus equipos.</p>
         </tarjeta-producto>
 
-        <tarjeta-producto precio="40">
+        <tarjeta-producto precio="40" categoria="REDES">
           <img slot="foto" src="./img/wifi.svg" alt="Ilustración de un router y sus ondas de señal Wi-Fi">
           <h3 slot="nombre">Instalación y revisión de red Wi-Fi</h3>
           <p>Configuración del router, cobertura y seguridad de tu red.</p>
         </tarjeta-producto>
 
-        <tarjeta-producto precio="15">
+        <tarjeta-producto precio="15" categoria="RESPALDO">
           <img slot="foto" src="./img/respaldo.svg" alt="Ilustración de una nube con candado que representa respaldo seguro de archivos">
-          <h3 slot="nombre">Respaldo de información</h3>
-          <p>Copias automáticas de tus archivos en la nube, por mes.</p>
+          <h3 slot="nombre">Respaldo de información en la nube</h3>
+          <p>Copias automáticas de tus archivos en la nube, por $15 al mes.</p>
         </tarjeta-producto>
       </div>
+    </section>
+
+    <!-- Componente de Amaro: <testimonio-cliente>. Sustituir por testimonios reales. -->
+    <section class="testimonios contenedor" aria-labelledby="titulo-testimonios">
+      <p class="sobretitulo titulo-seccion">OPINIONES</p>
+      <h2 id="titulo-testimonios">Lo que dicen nuestros clientes</h2>
+      <div class="catalogo">
+        <testimonio-cliente estrellas="5">
+          <p>Dejaron mi computadora como nueva y ahora trabaja mucho más rápido.</p>
+          <span slot="nombre">Cliente de ejemplo 1</span>
+        </testimonio-cliente>
+        <testimonio-cliente estrellas="5">
+          <p>El Wi-Fi de mi local ahora llega a todas las áreas sin cortes.</p>
+          <span slot="nombre">Cliente de ejemplo 2</span>
+        </testimonio-cliente>
+        <testimonio-cliente estrellas="4">
+          <p>Gracias al respaldo en la nube no perdí mis archivos importantes.</p>
+          <span slot="nombre">Cliente de ejemplo 3</span>
+        </testimonio-cliente>
+      </div>
+    </section>
+
+    <!-- Componente de Diego: <preguntas-frecuentes>. Cada elemento es un ítem del acordeón. -->
+    <section class="faq contenedor" aria-labelledby="titulo-faq">
+      <p class="sobretitulo titulo-seccion">AYUDA</p>
+      <h2 id="titulo-faq">Preguntas frecuentes</h2>
+      <div class="faq-lista">
+        <preguntas-frecuentes abierto>
+          <h3 slot="pregunta">¿Cuánto tarda un mantenimiento?</h3>
+          <p>Normalmente entre 1 y 2 horas, según el estado del equipo.</p>
+        </preguntas-frecuentes>
+        <preguntas-frecuentes>
+          <h3 slot="pregunta">¿Atienden a domicilio?</h3>
+          <p>Sí, coordinamos la visita según tu ubicación.</p>
+        </preguntas-frecuentes>
+        <preguntas-frecuentes>
+          <h3 slot="pregunta">¿Mis archivos están seguros en el respaldo?</h3>
+          <p>Las copias se guardan en la nube de forma automática y protegida.</p>
+        </preguntas-frecuentes>
+      </div>
+    </section>
     </main>
 
     <footer class="pie-pagina contenedor">
-      <span><strong>TecnoAyuda PyME</strong> · Tecnología que acompaña tu negocio.</span>
+      <span><strong>TecnoAyuda JACD</strong> · Tecnología que te acompaña.</span>
+      <boton-contacto variante="secundario" telefono="593999999999">Escríbenos</boton-contacto>
       <span>Propuesta académica · Web Components</span>
     </footer>
   </div>

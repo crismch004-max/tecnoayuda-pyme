@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TecnoAyuda JACD">
+  <rect width="64" height="64" rx="15" fill="#176A91"/>
+  <path d="M15 19h30v8H34v24h-8V27H15z" fill="#fff"/>
+  <path d="M43 38h6v-6h5v6h6v5h-6v6h-5v-6h-6z" fill="#8DE8F4"/>
+</svg>
